@@ -7,4 +7,4 @@ export class AtualizarJogadorDTO {
 
      @IsNotEmpty()
      readonly nome: string;
-}
+} 
