@@ -1,4 +1,4 @@
-export class Ijogador extends Document {
+export class Jogador extends Document {
     readonly _id: string;
     readonly telefoneCelular: string;
     readonly email: string;

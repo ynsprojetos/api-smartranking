@@ -3,7 +3,7 @@ import { JogadoresValidacaoParametrosPipe } from './pipes/jogadores-validacao-pa
 import { CriarJogadorDTO } from './dtos/criar-jogador.dto';
 import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, Query, UsePipes, ValidationPipe } from '@nestjs/common';
 import { JogadoresService } from './jogadores.service';
-import { Ijogador } from './interfaces/jogador.interface';
+import { Jogador } from './interfaces/jogador.interface';
 
 @Controller('api/v1/jogadores')
 export class JogadoresController {
@@ -12,7 +12,7 @@ export class JogadoresController {
 
  @Post()
  @UsePipes(ValidationPipe)
- async criarJogador(@Body() criarJogadorDTO: CriarJogadorDTO): Promise<Ijogador>{
+ async criarJogador(@Body() criarJogadorDTO: CriarJogadorDTO): Promise<Jogador>{
       return await this.jogadoresService.criarJogador(criarJogadorDTO)
  }
 
@@ -25,13 +25,13 @@ export class JogadoresController {
  }
 
  @Get()
- async consultarJogadores(): Promise<Ijogador[]> {
+ async consultarJogadores(): Promise<Jogador[]> {
      return await this.jogadoresService.consultarTodosJogadores()
  }
 
 @Get('/:id')
  async consultarJogadorPeloId(
-     @Param('id') id: string): Promise<Ijogador> {
+     @Param('id') id: string): Promise<Jogador> {
           return await this.jogadoresService.consultarJogadorPorId(id)
         }
 
